@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TestCase xmlns:xi="http://www.w3.org/2003/XInclude" clause="6.2B.1.3" name="UE Maximum Output Power for Inter-Band EN-DC within FR1" version="1.0.0.0" guid="ddf08b3a-105e-4ca9-aad9-ece8d6f21fea">
+	<!-- PRODUCT INFO -->
+	<xi:include href="ProductInfo.xml"/>
+	<!-- TEST INFO -->
+	<Description>
+		<Title>UE Maximum Output Power for Inter-Band EN-DC within FR1</Title>
+		<Summary/>
+	</Description>
+	<!-- PARAMETERS DEFINITION -->
+	<xi:include href="GUI\Parameterization01.xml"/>
+	<xi:include href="GUI\GUI.Product.xml"/>
+	<xi:include href="DefaultCommonParameters\ComonParameters.Definition.xml"/>
+	<xi:include href="DefaultCommonParameters\CommonParameter.Definition.SpecificationCoder.xml"/>
+	<xi:include href="DefaultCommonParameters\ComonParameters.xml"/>
+	<xi:include href="DefaultCommonParameters\AttachParameters.xml"/>
+	<xi:include href="DefaultCommonParameters\TDD_UL_DL_Config_FR1.xml"/>
+	<xi:include href="DefaultCommonParameters\RRCReconfigurationMessages.xml"/>
+	<xi:include href="DefaultCommonParameters\MeasConditionParameters.xml"/>
+	<xi:include href="GUI\ParameterizationValues.xml"/>
+	<xi:include href="DefaultCommonParameters\ParametersSwapped.xml"/>
+	<xi:include href="DefaultCommonParameters\EnvConditionsParams.Definition.xml"/>
+	<xi:include href="DefaultCommonParameters\SweepNSA.xml"/>
+	<xi:include href="DefaultCommonParameters\TAP8CommonParams.xml"/>
+	<xi:include href="SelExpr\C011.xml"/>
+	<!-- TEST CASE PARAMETERS -->
+	<Parameters>
+		<Parameter id="ProductMode" value="CT"/>
+		<Parameter id="TemperatureConditions" value="Nominal" />
+	    	<Parameter id="VoltageConditions" value="Nominal" />	
+		<Parameter id="TestCaseRelease" value="Release15"/>
+		<Parameter id="MeasureSelector" value="ChannelPower"/>
+		<Parameter id="UEPowerClass" value="Class3"/>
+		<Parameter id="UpperTolerance" value="2"/>
+		<Parameter id="LTE_TestTolerance" value="0.7"/>
+		<Parameter id="TestTolerance" value="1"/>
+		<Parameter id="EN_DC_Comb" value="DC_1A_n78A"/>
+
+		<!-- LTE PARAMETERS -->
+		<Parameter id="LTE_Band" value="1"/>
+		<Parameter id="LTE_DuplexMode" value="FDD"/>
+		<Parameter id="Frequency_LTE" value="HIGH"/>
+		<Parameter id="LTE_ChBW" value="BW5"/>
+		<Parameter id="LTE_UE_PowerControlMode" value="UP"/>
+		<Parameter id="LTE_EIP_attach" value="20"/>
+		<Parameter id="LTE_UlEARFCN" value="18575"/>
+		<Parameter id="LTE_DlEARFCN" value="575"/>
+		<Parameter id="LTE_DL_MacPadding" value="OFF"/>
+		<Parameter id="LTE_ULIMCS" value="5;5;5;5;5;5;5;5;5;5"/>
+		<Parameter id="LTE_ULModulation" value="QPSK"/>
+		<Parameter id="LTE_UE_PowerControlMode" value="UP"/>
+		<Parameter id="LTE_PUSCH_TargetPower" value="23"/>
+		<Parameter id="LTE_UXM_Port" value="RFIO4"/>
+
+		<!--XAPPs configuration-->
+		<Parameter id="LTE_Average_State" value="OFF"/>
+		<Parameter id="LTE_Average_Number" value="3"/>
+		<Parameter id="LTE_TriggerDelayState" value="ON"/>
+		<Parameter id="LTE_GateTrigger" value="PRTFrame"/>
+		<Parameter id="LTE_GattingDelay" value="0.009"/>
+		<Parameter id="LTE_GattingLength" value="0.001"/>
+		<Parameter id="LTE_XApps_Range" value="-60"/>
+
+		<!-- NR PARAMETERS -->
+		<Parameter id="NR_Band" value="N78"/>
+		<Parameter id="NR_DuplexMode" value="TDD"/>
+		<Parameter id="Frequency_NR" value="HIGH"/>
+		<Parameter id="NR_SCS" value="MU1"/>
+		<Parameter id="NR_ChBW_DL" value="BW20"/>
+		<Parameter id="NR_ChBW_UL" value="BW20"/>
+		<!-- El lowest realmente es BW10 para n78 pero el movil no lo soporta necesariamente -->
+		<Parameter id="Common_CoresetFrequencyDomain" value="1FE000000000" />
+		<Parameter id="NR_UlEARFCN" value="652666"/>
+		<Parameter id="NR_DlEARFCN" value="652666"/>
+		<Parameter id="SSBRasterARFCN" value="652320"/>
+		<Parameter id="OffsetToCarrierDL" value="504"/>
+		<Parameter id="OffsetToCarrierUL" value="504"/>
+		<Parameter id="KSSB" value="2"/>
+		<Parameter id="MIB_Coreset0" value="1"/>
+		<Parameter id="SSBlockSCS" value="MU1"/>
+		<Parameter id="NRDLPointA" value="639958"/>
+		<Parameter id="NR_ULModulation" value="DFT"/>
+		<Parameter id="NR_PUSCH_MCS_Table" value="Q64"/>
+		<Parameter id="NR_ULIMCS" value="QPSK"/>
+		<Parameter id="NR_DLModulation" value="CP"/>
+		<Parameter id="NR_DLRBNumber" value="Outer_Full"/>
+		<Parameter id="NR_DLRBStart" value="Outer_Full"/>
+		<Parameter id="NR_DLIMCS" value="QPSK"/>
+		<Parameter id="NR_EIP_measure" value="23"/>
+		<Parameter id="MaximumOutputPower" value="23"/>
+		<Parameter id="NR_EPRE_measure" value="-82"/>
+		<Parameter id="NR_EPRE_attach" value="-82"/>
+		<Parameter id="NR_TimingOffsetTs" value="0"/>
+		<Parameter id="NR_TPC_CONFIGURATION" value="UP"/>
+		<Parameter id="NR_PUSCH_PositiveTolerance" value="Pw;Pw;Pw"/>
+		<Parameter id="NR_PUSCH_NegativeTolerance" value="Pw;Pw;Pw"/>
+		<Parameter id="NR_UXM_Port" value="RFIO1"/>
+
+		<!--XAPPs configuration-->
+		<Parameter id="NR_XApps_Bandwidth_GUI" value="BW20"/>
+		<Parameter id="NR_XApps_CenterFrequency_GUI" value="3789990000"/>
+		<Parameter id="GateState" value="ON"/>
+		<Parameter id="GateTrigger" value="PRTFrame"/>
+		<Parameter id="NR_GattingDelay_SCS_30" value="0.009"/>
+		<Parameter id="NR_GattingLength_SCS_30" value="0.001"/>
+		<Parameter id="NR_SpanMultiplier_GUI" value="2"/>
+		<Parameter id="NR_XApps_Range" value="-45"/>
+		<Parameter id="NR_Average_State" value="OFF"/>
+		<Parameter id="NR_Average_Number" value="3"/>
+		<Parameter id="EmulatedExecution" value="False" />
+		<Parameter id="EmulatedModeMeasureFile" value="Void"/>
+	</Parameters>
+	<TestPoints>
+		<TestPoint>
+	        <Parameter id="TestPoint" value="1" />
+			<Parameter id="Test_ID" value="7"/>
+			<Parameter id="LTE_ULRBNumber" value="1;1;1;1;1;1;1;1;1;1"/>
+			<Parameter id="LTE_ULRBStart" value="24;24;24;24;24;24;24;24;24;24"/>
+			<Parameter id="NR_ULRBNumber" value="25;25;25;25;25;25;25;25;25;25;25;25;25;25;25;25"/>
+			<Parameter id="NR_ULRBStart" value="12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12"/>
+			<Parameter id="LowerTolerance" value="2"/>
+			<Parameter id="NR_EnableULScheduler" value="False"/>
+			<Parameter id="LTE_UL_Specific_Scheduler" value="False"/>
+			<Parameter id="LTE_UL_Scheduler" value="Void"/>
+			<Parameter id="LTE_Specific_Scheduler" value="False"/>
+			<Parameter id="LTE_UL_MacPadding" value="ON"/>
+			<Parameter id="TechnologySelection" value="LTE"/>
+			<Parameter id="LTE_Agnostic" value="False"/>
+		</TestPoint>
+		<TestPoint>
+	        <Parameter id="TestPoint" value="2" />
+			<Parameter id="Test_ID" value="13"/>
+			<Parameter id="LTE_ULRBNumber" value="8;8;8;8;8;8;8;8;8;8"/>
+			<Parameter id="LTE_ULRBStart" value="17;17;17;17;17;17;17;17;17;17"/>
+			<Parameter id="NR_ULRBNumber" value="1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1"/>
+			<Parameter id="NR_ULRBStart" value="49;49;49;49;49;49;49;49;49;49;49;49;49;49;49;49"/>
+			<Parameter id="LowerTolerance" value="3"/>
+			<Parameter id="NR_EnableULScheduler" value="True"/>
+			<Parameter id="LTE_UL_Specific_Scheduler" value="True"/>
+			<Parameter id="LTE_UL_Scheduler" value="SFRame0;SFRame1;SFRame2;SFRame3;SFRame4;SFRame5;SFRame6;SFRame7;SFRame8;SFRame9"/>
+			<Parameter id="LTE_Specific_Scheduler" value="True"/>
+			<Parameter id="LTE_UL_MacPadding" value="OFF"/>
+			<Parameter id="TechnologySelection" value="NR"/>
+			<Parameter id="LTE_Agnostic" value="True"/>
+		</TestPoint>
+		<TestPoint>
+	        <Parameter id="TestPoint" value="3" />
+			<Parameter id="Test_ID" value="8"/>
+			<Parameter id="Frequency_LTE" value="LOW"/>
+			<Parameter id="LTE_UlEARFCN" value="18025"/>
+			<Parameter id="LTE_DlEARFCN" value="25"/>
+			<!--Los valores vienen de la fila Low Range para BW=5MHz en 36508 (4.3.1.1.1).-->
+			
+			<Parameter id="Frequency_NR" value="LOW"/>
+			<Parameter id="NR_UlEARFCN" value="620668"/>
+			<Parameter id="NR_DlEARFCN" value="620668"/>
+			<Parameter id="SSBRasterARFCN" value="620352"/>
+			<Parameter id="OffsetToCarrierDL" value="0"/>
+			<Parameter id="OffsetToCarrierUL" value="0"/>
+			<Parameter id="NR_XApps_CenterFrequency_GUI" value="3310020000"/>
+			<Parameter id="KSSB" value="8"/>
+			<Parameter id="MIB_Coreset0" value="1"/>
+			<Parameter id="NRDLPointA" value="620032"/>
+			<!--Los valores vienen de la fila CBW=20MHz, subfila Low en 38508-1 (4.3.1.1.1.78-1).-->	
+
+			<Parameter id="LTE_ULRBNumber" value="1;1;1;1;1;1;1;1;1;1"/>
+			<Parameter id="LTE_ULRBStart" value="0;0;0;0;0;0;0;0;0;0"/>
+			<!--Para 1RB_Left, va de 0 a 24, el más a la izquierda es el 0.-->
+			<!--Para LTE, ver tabla 6.1-1 en 38521-3 , pg78.-->
+			<!-- numeroRB@posicionRB -->
+			
+			<Parameter id="NR_ULRBNumber" value="25;25;25;25;25;25;25;25;25;25;25;25;25;25;25;25"/>
+			<Parameter id="NR_ULRBStart" value="12;12;12;12;12;12;12;12;12;12;12;12;12;12;12;12"/>
+			<Parameter id="LowerTolerance" value="2"/>
+			<Parameter id="NR_EnableULScheduler" value="False"/>
+			<Parameter id="LTE_UL_Specific_Scheduler" value="False"/>
+			<Parameter id="LTE_UL_Scheduler" value="Void"/>
+			<Parameter id="LTE_Specific_Scheduler" value="False"/>
+			<Parameter id="LTE_UL_MacPadding" value="ON"/>
+			<Parameter id="TechnologySelection" value="LTE"/>
+			<Parameter id="LTE_Agnostic" value="False"/>
+		</TestPoint>
+		<TestPoint>
+	        <Parameter id="TestPoint" value="4" />
+			<Parameter id="Test_ID" value="14"/>
+			<Parameter id="Frequency_LTE" value="LOW"/>
+			<Parameter id="LTE_UlEARFCN" value="18025"/>
+			<Parameter id="LTE_DlEARFCN" value="25"/>
+			<!--Los valores vienen de la fila Low Range para BW=5MHz en 36508 (4.3.1.1.1).-->
+			
+			<Parameter id="Frequency_NR" value="LOW"/>
+			<Parameter id="NR_UlEARFCN" value="620668"/>
+			<Parameter id="NR_DlEARFCN" value="620668"/>
+			<Parameter id="SSBRasterARFCN" value="620352"/>
+			<Parameter id="OffsetToCarrierDL" value="0"/>
+			<Parameter id="OffsetToCarrierUL" value="0"/>
+			<Parameter id="NR_XApps_CenterFrequency_GUI" value="3310020000"/>
+			<Parameter id="KSSB" value="8"/>
+			<Parameter id="MIB_Coreset0" value="1"/>
+			<Parameter id="NRDLPointA" value="620032"/>
+			<!--Los valores vienen de la fila CBW=20MHz, subfila Low en 38508-1 (4.3.1.1.1.78-1).-->
+			
+			<Parameter id="LTE_ULRBNumber" value="8;8;8;8;8;8;8;8;8;8"/>
+			<Parameter id="LTE_ULRBStart" value="17;17;17;17;17;17;17;17;17;17"/>
+			<!-- Para LTE, ver tabla 6.1-1 en 38521-3, pg70.-->
+			
+			<Parameter id="NR_ULRBNumber" value="1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1"/>
+			<Parameter id="NR_ULRBStart" value="1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1"/>
+			<!-- Para NR, ver tabla 6.1-1 en 38521-1 , pg92.-->
+						
+			<Parameter id="LowerTolerance" value="3"/>
+			<Parameter id="NR_EnableULScheduler" value="True"/>
+			<Parameter id="LTE_UL_Specific_Scheduler" value="True"/>
+			<Parameter id="LTE_UL_Scheduler" value="SFRame0;SFRame1;SFRame2;SFRame3;SFRame4;SFRame5;SFRame6;SFRame7;SFRame8;SFRame9"/>
+			<Parameter id="LTE_Specific_Scheduler" value="True"/>
+			<Parameter id="LTE_UL_MacPadding" value="OFF"/>
+			<Parameter id="TechnologySelection" value="NR"/>
+			<Parameter id="LTE_Agnostic" value="True"/>
+		</TestPoint>
+		
+		<!-- TEST ID 5, LOW -->
+		<TestPoint>
+	        <Parameter id="TestPoint" value="5" />
+			<Parameter id="Test_ID" value="5"/>
+			<Parameter id="Frequency_LTE" value="LOW"/>
+			<Parameter id="LTE_UlEARFCN" value="18025"/>
+			<Parameter id="LTE_DlEARFCN" value="25"/>
+			<!-- 36508 (4.3.1.1.1).-->
+			
+			<Parameter id="Frequency_NR" value="LOW"/>
+			<Parameter id="NR_UlEARFCN" value="620668"/>
+			<Parameter id="NR_DlEARFCN" value="620668"/>
+			<Parameter id="SSBRasterARFCN" value="620352"/>
+			<Parameter id="OffsetToCarrierDL" value="0"/>
+			<Parameter id="OffsetToCarrierUL" value="0"/>
+			<Parameter id="NR_XApps_CenterFrequency_GUI" value="3310020000"/>
+			<Parameter id="KSSB" value="8"/>
+			<Parameter id="MIB_Coreset0" value="1"/>
+			<Parameter id="NRDLPointA" value="620032"/>
+			<!-- 38508-1 (4.3.1.1.1.78-1).-->
+			
+			<Parameter id="LTE_ULRBNumber" value="1;1;1;1;1;1;1;1;1;1"/>
+			<Parameter id="LTE_ULRBStart" value="0;0;0;0;0;0;0;0;0;0"/>
+			<!-- tabla 6.1-1 en 38521-3, pg70.-->
+			
+			<Parameter id="NR_ULRBNumber" value="1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1"/>
+			<Parameter id="NR_ULRBStart" value="1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1"/>
+			<!-- tabla 6.1-1 en 38521-1, pg92.-->
+						
+			<Parameter id="LowerTolerance" value="3"/>
+			<Parameter id="NR_EnableULScheduler" value="True"/>
+			<Parameter id="LTE_UL_Specific_Scheduler" value="True"/>
+			<Parameter id="LTE_UL_Scheduler" value="SFRame0;SFRame1;SFRame2;SFRame3;SFRame4;SFRame5;SFRame6;SFRame7;SFRame8;SFRame9"/>
+			<Parameter id="LTE_Specific_Scheduler" value="True"/>
+			<Parameter id="LTE_UL_MacPadding" value="ON"/>
+			<Parameter id="TechnologySelection" value="LTENR"/>
+			<Parameter id="LTE_Agnostic" value="True"/>
+		</TestPoint>
+		<!-- TEST ID 5, HIGH -->
+		<TestPoint>
+	        <Parameter id="TestPoint" value="6" />
+			<Parameter id="Test_ID" value="5"/>
+			<Parameter id="Frequency_LTE" value="LOW"/>
+			<Parameter id="LTE_UlEARFCN" value="18100"/>
+			<Parameter id="LTE_DlEARFCN" value="100"/>
+			<!-- Los valores vienen de la fila Low Range para BW=20MHz en 36508 (4.3.1.1.1)-->
+			
+			<Parameter id="Frequency_NR" value="LOW"/>
+			<Parameter id="NR_UlEARFCN" value="623334"/>
+			<Parameter id="NR_DlEARFCN" value="623334"/>
+			<Parameter id="SSBRasterARFCN" value="620352"/>
+			<Parameter id="OffsetToCarrierDL" value="0"/>
+			<Parameter id="OffsetToCarrierUL" value="0"/>
+			<Parameter id="NR_XApps_CenterFrequency_GUI" value="3350010000"/>
+			<Parameter id="KSSB" value="6"/>
+			<Parameter id="MIB_Coreset0" value="2"/>
+			<Parameter id="NRDLPointA" value="620058"/>
+			<!-- Los valores vienen de la fila CBW=100MHz, subfila Low en 38508-1 (4.3.1.1.1.78-1)-->
+			
+			<Parameter id="LTE_ULRBNumber" value="1;1;1;1;1;1;1;1;1;1"/>
+			<Parameter id="LTE_ULRBStart" value="0;0;0;0;0;0;0;0;0;0"/>
+			<!-- tabla 6.1-1 en 38521-3, pg70.-->
+			
+			<Parameter id="NR_ULRBNumber" value="1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1"/>
+			<Parameter id="NR_ULRBStart" value="1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1"/>
+			<!-- tabla 6.1-1 en 38521-1, pg92.-->
+						
+			<Parameter id="LowerTolerance" value="3"/>
+			<Parameter id="NR_EnableULScheduler" value="True"/>
+			<Parameter id="LTE_UL_Specific_Scheduler" value="True"/>
+			<Parameter id="LTE_UL_Scheduler" value="SFRame0;SFRame1;SFRame2;SFRame3;SFRame4;SFRame5;SFRame6;SFRame7;SFRame8;SFRame9"/>
+			<Parameter id="LTE_Specific_Scheduler" value="True"/>
+			<Parameter id="LTE_UL_MacPadding" value="ON"/>
+			<Parameter id="TechnologySelection" value="LTENR"/>
+			<Parameter id="LTE_Agnostic" value="True"/>
+		</TestPoint>
+	</TestPoints>
+</TestCase>
